@@ -26,39 +26,41 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter += 2;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(
-        title: new Text(widget.title),
-      ),
-      body: new Center(
-        child: new Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        appBar: new AppBar(
+          title: new Text(widget.title),
+        ),
+        body: new ListView(
           children: <Widget>[
-            new Text(
-              'You have pushed the button this many times:',
-            ),
-            new Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
+            new Card(
+              child: new Column(
+                children: <Widget>[
+                  new Row(children: <Widget>[
+                    new Expanded(
+                      child: new Image.asset(
+                        'images/MAHE.jpg',
+                        fit: BoxFit.scaleDown,
+                      ),
+                    ),
+                    new Expanded(
+                        child: new Padding(
+                          child: const Text(
+                            'Taylor mourns the loss of a beloved student',
+                            textScaleFactor: 1.2,
+                            maxLines: 3,
+                            textAlign: TextAlign.left,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          padding: new EdgeInsets.only(left: 20.0),),
+                    flex: 3,
+                    )
+                  ]),
+                ],
+              ),
             ),
           ],
-        ),
-      ),
-      floatingActionButton: new FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: new Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+        ));
   }
 }
